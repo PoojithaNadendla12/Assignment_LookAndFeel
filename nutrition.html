@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes by Cuisine - Recipe Book</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Sets a clean and modern font for the page */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light grey background for the whole page */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+            nav a:hover {
+                background-color: #555; /* Darker background on hover for navigation links */
+            }
+
+        main {
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Ensures that table borders are merged */
+            background-color: white; /* White background for the tables */
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd; /* Light grey border for table cells */
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50; /* Green background for headers */
+            color: white;
+        }
+
+        caption {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333; /* Dark grey text for captions */
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Healthy Living</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="bmi.html">BMI</a>
+            <a href="nutrition.html">Nutrition Content</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="recipesTable"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipe Book Project</p>
+    </footer>
+
+    <script>
+        const recipes = [
+            { "title": "Butter Chicken", "fat": "28g", "calories": "490kcal", "cuisine": "Indian" },
+            { "title": "Palak Paneer", "fat": "25g", "calories": "350kcal", "cuisine": "Indian" },
+            { "title": "Kung Pao Chicken", "fat": "19g", "calories": "290kcal", "cuisine": "Chinese" },
+            { "title": "Peking Duck", "fat": "23g", "calories": "430kcal", "cuisine": "Chinese" },
+            { "title": "Beef Stroganoff", "fat": "16g", "calories": "310kcal", "cuisine": "Continental" },
+            { "title": "Chicken Cordon Bleu", "fat": "12g", "calories": "330kcal", "cuisine": "Continental" },
+            { "title": "Wiener Schnitzel", "fat": "18g", "calories": "510kcal", "cuisine": "Continental" },
+            { "title": "Spaghetti Carbonara", "fat": "18g", "calories": "400kcal", "cuisine": "Continental" }
+        ];
+
+        const container = document.getElementById('recipesTable');
+        const cuisines = [...new Set(recipes.map(recipe => recipe.cuisine))];
+
+        cuisines.forEach(cuisine => {
+            const cuisineSection = document.createElement('table');
+            const caption = cuisineSection.createCaption();
+            caption.textContent = `${cuisine} Cuisine Recipes`;
+
+            const headerRow = cuisineSection.insertRow();
+            ['Title', 'Fat', 'Calories'].forEach(text => {
+                const headerCell = document.createElement('th');
+                headerCell.textContent = text;
+                headerRow.appendChild(headerCell);
+            });
+
+            recipes.filter(recipe => recipe.cuisine === cuisine).forEach(recipe => {
+                const row = cuisineSection.insertRow();
+                [recipe.title, recipe.fat, recipe.calories].forEach(text => {
+                    const cell = row.insertCell();
+                    cell.textContent = text;
+                });
+            });
+
+            container.appendChild(cuisineSection);
+        });
+    </script>
+</body>
+</html>

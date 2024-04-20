@@ -1,0 +1,296 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Living</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Sets a clean and modern font for the page */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light grey background for the whole page */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+            nav a:hover {
+                background-color: #555; /* Darker background on hover for navigation links */
+            }
+
+        .container {
+            background: white;
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="number"], button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #367c39;
+            }
+
+        #resultsBox {
+            background-color: #f8f8f8;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BMI Calculator - Recipe Book</h1>
+    </header>
+    <nav>
+        <ul id="navigation">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="bmi.html" class="active">BMI</a></li>
+            <li><a href="nutrition.html">Nutrition Facts</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <h2>BMI Calculator</h2>
+            <form id="bmiForm">
+                <label class="textlogin">Weight in kilograms:</label>
+                <input type="number" id="weight" required> <br />
+                <br />
+                <label class="textlogin">Height in centimeters:</label>
+                <input type="number" id="height" required><br />
+                <br />
+                <button type="submit">Calculate BMI</button><br />-->
+                <!-- Results Box -->
+                <!--<div id="resultsBox">
+                    <p>BMI: <span id="bmiValue">-</span></p>
+                    <p>Interpretation: <span id="bmiInterpretation">-</span></p>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Step up to a healthier body and change your life</p>
+    </footer>
+
+    <script>
+        document.getElementById('bmiForm').onsubmit = function (event) {
+            event.preventDefault();
+            var weight = parseFloat(document.getElementById('weight').value);
+            var height = parseFloat(document.getElementById('height').value) / 100; // Convert to meters
+            var bmi = weight / (height * height);
+            document.getElementById('bmiValue').textContent = bmi.toFixed(2);
+
+            var interpretation = '';
+            if (bmi < 18.5) {
+                interpretation = 'Underweight';
+            } else if (bmi < 25) {
+                interpretation = 'Normal weight';
+            } else if (bmi < 30) {
+                interpretation = 'Overweight';
+            } else {
+                interpretation = 'Obese';
+            }
+            document.getElementById('bmiInterpretation').textContent = interpretation;
+        };
+    </script>
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book - Manage Recipes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Sets a clean and modern font for the page */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light grey background for the whole page */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+            nav a:hover {
+                background-color: #555; /* Darker background on hover for navigation links */
+            }
+
+        main {
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        input[type="text"], textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 5px 0px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+        h2, h3 {
+            color: #333;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Healthy Living</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="bmi.html">BMI</a>
+            <a href="nutrition.html">Nutrition Content</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
+    <h2>Recipe Book Manager</h2>
+    <div class="container">
+        <h3>Add New Recipe</h3>
+        <form id="addRecipeForm">
+            <input type="text" id="recipeName" placeholder="Recipe Name" required>
+            <textarea id="recipeDescription" placeholder="Recipe Description" required></textarea>
+            <button type="submit">Add Recipe</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h3>Recipe List</h3>
+        <div id="recipeList"></div>
+    </div>
+
+    <script>
+        let recipes = [];
+
+        document.getElementById('addRecipeForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = document.getElementById('recipeName').value.trim();
+            const description = document.getElementById('recipeDescription').value.trim();
+            if (name && description) {
+                recipes.push({ id: recipes.length + 1, name, description });
+                displayRecipes();
+                document.getElementById('recipeName').value = '';
+                document.getElementById('recipeDescription').value = '';
+            }
+        });
+
+        function displayRecipes() {
+            const list = document.getElementById('recipeList');
+            list.innerHTML = '';
+            recipes.forEach(recipe => {
+                const item = document.createElement('div');
+                item.innerHTML = `<h3>${recipe.name}</h3><p>${recipe.description}</p>
+                                              <button onclick="editRecipe(${recipe.id})">Edit</button>
+                                              <button onclick="deleteRecipe(${recipe.id})">Delete</button>`;
+                list.appendChild(item);
+            });
+        }
+
+        function editRecipe(id) {
+            const recipe = recipes.find(r => r.id === id);
+            if (recipe) {
+                const newName = prompt("Enter the new name of the recipe:", recipe.name);
+                const newDescription = prompt("Enter the new description of the recipe:", recipe.description);
+                recipe.name = newName;
+                recipe.description = newDescription;
+                displayRecipes();
+            }
+        }
+
+        function deleteRecipe(id) {
+            recipes = recipes.filter(recipe => recipe.id !== id);
+            displayRecipes();
+        }
+    </script>
+    <footer>
+        <p>&copy; 2024 Recipe Book Project</p>
+    </footer>
+</body>
+</html>
